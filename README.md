@@ -42,3 +42,13 @@ Open Link http://localhost:3000/
 ````
         Options : 07280, 00764, 03465
 ````
+
+###### Salesforce, AX2009 and AX365 by AX Account Number :moneybag:
+
+**Code** : uses npm package mssql
+
+**Path** : `dashboard/:account`
+
+````
+        Options : 07280, 00764, 03465
+````

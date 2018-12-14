@@ -78,7 +78,47 @@
                         }
             </code>
 
+ <!-- API 3 : Dashboard by AX Customer ID -->
 
+ <h3>/opportunity/:AxCustomerId</h3>
+
+ <h5>returns data from Salesforce, AX365 and AX2009 by AX Account Number</h5>
+
+ <h6><u>JSON Structure</u></h6>
+
+ <code style="display:block;white-space:pre-wrap">
+             salesforce : {
+                            "name": Account Name,
+                            "probability": Probability%,
+                            "amount": Amount
+                            },
+             AX365 : {
+
+                        customer: {
+                            "custAccount": Customer Account Number
+                            "Customer" : Name
+                        },
+
+                        data: {
+                            "SalesID":sales ID,
+                            "createdDate" : Booked Date,
+                            "Amount" : amount
+                        }
+                    },
+            AX2009 : {
+
+                        customer: {
+                            "custAccount": Customer Account Number
+                            "Customer" : Name
+                        },
+
+                        data: {
+                            "SalesID":sales ID,
+                            "createdDate" : Booked Date,
+                            "Amount" : amount
+                        }
+                    }
+ </code>
 
         </div>
 
