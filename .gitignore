@@ -1,3 +1,5 @@
 # dependencies
 /node_modules
 package-lock.json
+MSSQL/AX2009/config.json
+MSSQL/AX365/config.json

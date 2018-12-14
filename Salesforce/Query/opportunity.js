@@ -20,7 +20,7 @@ var querySoql = (accountName) => {
                             reject(err); 
                         }
 
-                        console.log(result)
+                        //console.log(result)
 
                         var data = [];
                         var dataArray = [];

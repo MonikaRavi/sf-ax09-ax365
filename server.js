@@ -7,9 +7,6 @@ var path = require('path');
 
 var viewPath = __dirname + '/public/';
 
-var sfData = require('./Salesforce/Query/accounts');
-var sfQuery = require('./Salesforce/Query/opportunity');
-
 var app = express();
 app.use(cors());
 
@@ -24,59 +21,28 @@ app.get('/', (req, res) => {
 
 });
 
+//Require Routes
 
-// get Accounts by distributor type
+//Salesforce
 
-app.get('/data/:type', (req, res) => {
+require('./routes/salesforce.routes')(app);
 
+//AX365
 
-  sfData.accounts(req.params.type).then(
+require('./routes/avlis.routes')(app);
 
-    (data) => {
+//AX2009
 
-      res.send(JSON.stringify(data, undefined, 2));
-      // console.log({data});
-    },
-    (err) => {
-      res.status(400).send(err);
-    }
+require('./routes/sparks.route')(app);
 
-  ).catch((err) => {
-    res.status(400).send(err);
-  })
+//ALL
 
-
-});
-
-// get the opportunity by AX account no
-
-app.get('/opportunity/:account', (req, res) => {
-
-
-  sfQuery.querySoql(decodeURI(req.params.account)).then(
-
-    (data) => {
-
-      res.send(JSON.stringify(data, undefined, 2));
-      // console.log({data});
-    },
-    (err) => {
-      res.status(400).send(err);
-    }
-
-  ).catch((err) => {
-    res.status(400).send(err);
-  })
-
-
-});
-
-
+require('./routes/dashboard.routes')(app);
 
 app.listen(port, () => {
   console.log(`Server started at port ${port}..`);
 });
 
 
-
+module.exports = { app };
 
